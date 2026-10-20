@@ -1,5 +1,3 @@
 aiogram>=3.0.0
-pymysql
 psycopg2-binary
-cryptography
 openai>=1.0.0
