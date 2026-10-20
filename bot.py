@@ -127,7 +127,7 @@ async def send_welcome(message: types.Message):
                 [
                     InlineKeyboardButton(
                         text="🚀 在聊天室试用 AI (内联模式)",
-                        switch_inline_query="帮我写一封请假条",
+                        switch_inline_query="帮我",
                     )
                 ]
             ]
@@ -184,7 +184,7 @@ async def inline_query_handler(query: InlineQuery):
             title=f"⏳ 请稍候 {left_time} 秒后再试...",
             description="免费通道冷却中，点击可领取专属额度无限畅聊！",
             input_message_content=InputTextMessageContent(
-                message_text=f"⚡ 我正在使用 @{BOT_USERNAME} 的免费 AI 服务！\n👉 点击 <a href='https://t.me/{BOT_USERNAME}?start=viral'>这里免费领取 $0.5~$1.0 体验额度</a>！",
+                message_text=f"⚡ 我正在使用 @{BOT_USERNAME} 的免费 AI 服务！\n👉 点击 <a href='https://t.me/{BOT_USERNAME}?start=viral'>这里免费领取 0.05~0.10 体验额度</a>！",
                 parse_mode="HTML",
             ),
         )
@@ -238,7 +238,7 @@ async def chosen_inline_handler(chosen_result: ChosenInlineResult):
         inline_keyboard=[
             [
                 InlineKeyboardButton(
-                    text="🎁 点击免费领取 $0.5~$1.0 AI 额度",
+                    text="🎁 点击免费领取 0.05~$0.01 AI 额度",
                     url=f"https://t.me/{BOT_USERNAME}?start=viral",
                 )
             ],
