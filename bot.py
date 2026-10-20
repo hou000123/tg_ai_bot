@@ -32,7 +32,7 @@ DB_PASSWORD = os.getenv("DB_PASSWORD")
 DB_NAME = os.getenv("DB_NAME", "railway")
 
 QUOTA_PER_DOLLAR = int(os.getenv("QUOTA_PER_DOLLAR", 500000))
-SITE_URL = os.getenv("SITE_URL", "https://你的网站网址")
+SITE_URL = os.getenv("SITE_URL", "https://www.si-hk.cn/")
 
 NEWAPI_BASE_URL = os.getenv("NEWAPI_BASE_URL", f"{SITE_URL.rstrip('/')}/v1")
 NEWAPI_API_KEY = os.getenv("NEWAPI_API_KEY")
@@ -114,7 +114,7 @@ async def send_welcome(message: types.Message):
     user_id = message.from_user.id
     username = html.escape(message.from_user.first_name or "朋友")
 
-    usd_amount = round(random.uniform(0.50, 1.00), 2)
+    usd_amount = round(random.uniform(0.05, 0.1), 2)
     quota = int(usd_amount * QUOTA_PER_DOLLAR)
 
     try:
@@ -147,7 +147,7 @@ async def send_welcome(message: types.Message):
         reply_text = (
             f"🎉 欢迎 <b>{username}</b>！\n\n"
             f"🎁 系统已自动为您生成新手体验额度：\n"
-            f"💰 随机金额：<b>${usd_amount:.2f} 美元</b>\n"
+            f"💰 随机金额：<b>${usd_amount:.2f} </b>\n"
             f"🎫 您的兑换码 (点击复制)：\n\n"
             f"<code>{code}</code>\n\n"
             f'👉 请前往 <a href="{SITE_URL}">我们的网站</a> 在「钱包/充值」页面使用！\n'
@@ -238,7 +238,7 @@ async def chosen_inline_handler(chosen_result: ChosenInlineResult):
         inline_keyboard=[
             [
                 InlineKeyboardButton(
-                    text="🎁 点击免费领取 0.05~$0.01 AI 额度",
+                    text="🎁 点击免费领取 0.05~0.10 AI 额度",
                     url=f"https://t.me/{BOT_USERNAME}?start=viral",
                 )
             ],
